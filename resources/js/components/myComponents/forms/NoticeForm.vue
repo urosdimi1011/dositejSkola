@@ -1,9 +1,9 @@
 <template>
-    <Form @submit="submit" :validation-schema="simpleSchema" >
+    <Form @submit="submit" :key="formKey" :validation-schema="simpleSchema" :initial-values="initialValues">
         <div class="form-group my-12">
             <label for="name">Unesite naslov objave</label>
-            <Field class="shadow appearance-none border rounded w-full py-2 px-3 dark:text-stone-50 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name"/>
-            <ErrorMessage class="w-full flex items-start mt-2 text-xs text-slate-400" name="name" />
+            <Field class="shadow appearance-none border rounded w-full py-2 px-3 dark:text-stone-50 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" name="title"/>
+            <ErrorMessage class="w-full flex items-start mt-2 text-xs text-slate-400" name="title" />
         </div>
         <div class="form-group my-12">
             <label for="content">Unesite opis objave</label>
@@ -12,16 +12,16 @@
         <div class="flex flex-wrap gap-3 my-5">
             <Label class="mt-10">Izaberite tip objave:</Label>
             <div class="flex w-full gap-3">
-                <Label for="apartman">Zanimiljivosti:</Label>
-                <Field id="category" name="category" type="radio" value="zanimljivosti" />
+                <Label for="zanimljivosti">Zanimiljivosti:</Label>
+                <Field id="zanimljivosti" name="category" type="radio" value="zanimljivosti" />
             </div>
             <div class="flex w-full gap-3">
-                <Label for="apartman">Nastava:</Label>
-                <Field id="category" name="category" type="radio" value="nastava" />
+                <Label for="nastava">Nastava:</Label>
+                <Field id="nastava" name="category" type="radio" value="nastava" />
             </div>
             <div class="flex w-full gap-3">
-                <Label for="apartman">Dogadjaji:</Label>
-                <Field id="category" name="category" type="radio" value="dogadjaji" />
+                <Label for="dogadjaji">Dogadjaji:</Label>
+                <Field id="dogadjaji" name="category" type="radio" value="događaji" />
             </div>
             <ErrorMessage class="w-full flex items-start mt-2 text-xs text-slate-400" name="category" />
         </div>
@@ -30,7 +30,7 @@
     </Form>
 </template>
 <script setup>
-import {ref,defineProps,defineEmits} from 'vue';
+import {ref, defineProps, defineEmits, onBeforeMount, computed, reactive} from 'vue';
 import {Form,Field,ErrorMessage} from 'vee-validate';
 // import {useToast} from 'vue-toast-notification';
 // const toast = useToast();
@@ -41,9 +41,10 @@ import * as yup from 'yup';
 import { QuillEditor } from '@vueup/vue-quill'
 const editorData = ref('');
 const simpleSchema = yup.object({
-    name: yup.string().required('Ime je obavezeno polje'),
+    title: yup.string().required('Ime je obavezeno polje'),
     category : yup.string().required('Morate odabrati tip objave'),
 })
+const formKey = ref(0);
 
 const props = defineProps({
     formsData : Object,
@@ -54,20 +55,53 @@ const props = defineProps({
     }
 })
 
+const formValues = reactive(
+    {
+        "title" : '',
+        "category" : "",
+    }
+);
+
+const initialValues = computed(() => formValues.value);
+
+onBeforeMount(async ()=>{
+    if(props.id){
+        console.log("Uslii");
+        await getOneNotice(props.id);
+    }
+})
+
+const getOneNotice = async ()=>{
+
+    const response = await axios.get(`/admin/obavestenja/${props.id}`);
+    const notice = response.data.notice;
+
+    formValues.value = {
+        title: notice.title || '',
+        category: notice.category || '',
+    };
+
+    editorData.value =  notice.content || '';
+
+    formKey.value++;
+
+}
+
 
 
 const submit = async (values)=>{
         const formData =getsFormData({...values,'content':editorData.value});
+        console.log(formData);
         try {
             let response = null;
             if (props.type === 'add') {
-                response = await axios.post('/admin/room', formData, {
+                response = await axios.post('/admin/obavestenja', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
                 });
             } else if (props.type === 'edit') {
-                response = await axios.post(`/admin/room/${props.id}`, formData, {
+                response = await axios.post(`/admin/obavestenja/${props.id}`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
@@ -87,10 +121,13 @@ const submit = async (values)=>{
 const getsFormData =(values)=>{
     const formData = new FormData();
 
-    formData.append('name',values.name);
+    if(props.type === 'edit'){
+        formData.append('_method', 'PATCH');
+    }
+
+    formData.append('title',values.title);
     formData.append('content', values.content);
     formData.append('category', values.category);
-
     return formData;
 
 }

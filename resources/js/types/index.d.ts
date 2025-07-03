@@ -69,8 +69,17 @@ export interface RoomData {
     max_adults: number;
     max_children: number;
 }
-export interface FacilityData{
-    id: number,
-    name : string
+
+export interface ScheduleData {
+    id: number;
+    title: string;
+    file_path: string;
+    type: string;
+}
+interface ScheduleI {
+    id:string,
+    title : string,
+    file_path : string,
+    type : string
 }
 export type BreadcrumbItemType = BreadcrumbItem;

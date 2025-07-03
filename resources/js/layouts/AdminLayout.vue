@@ -22,6 +22,7 @@ onMounted(()=>{
             </div>
         </SidebarProvider>
     </div>
+
 </template>
 <style>
 a{

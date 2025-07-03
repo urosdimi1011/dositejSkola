@@ -1,32 +1,14 @@
 <template>
-<!--    <NavigationMenu class="w-full max-w-none bg-cyan-50">-->
-<!--        <NavigationMenuList class="w-full text-gray-950 justify-between">-->
-<!--            &lt;!&ndash; Default slot za stavke menija &ndash;&gt;-->
-<!--            <slot name="items">-->
-<!--                <li class="w-50">-->
-<!--                    <img src="/assets/img/logobordo.png" alt="logoDositeja"/>-->
-<!--                </li>-->
-<!--                <NavigationMenuItem-->
-<!--                    v-for="item in items"-->
-<!--                    :key="item.id"-->
-<!--                    :as="item.as"-->
-<!--                    :href="item.href"-->
-<!--                    :disabled="item.disabled"-->
-<!--                >-->
-<!--                    {{ item.title }}-->
-<!--                </NavigationMenuItem>-->
-<!--            </slot>-->
-<!--        </NavigationMenuList>-->
-<!--        <slot name="extra"></slot>-->
-<!--    </NavigationMenu>-->
-    <header-user></header-user>
-    <main class="bg-gray-50 ">
-        <slot></slot>
-    </main>
-    <footer-user></footer-user>
+    <div class="layout dark:bg-gray-50 dark:text-gray-950">
+        <header-user></header-user>
+        <main class="content">
+            <slot></slot>
+        </main>
+        <footer-user></footer-user>
+    </div>
 </template>
 <script setup>
-import {reactive} from "vue";
+import {reactive,onMounted} from "vue";
 import HeaderUser from "@/layouts/app/HeaderUser.vue";
 import FooterUser from "@/layouts/app/FooterUser.vue";
 
@@ -44,9 +26,32 @@ const items = reactive([
         "title":"Studijski Programi"
     }
 ])
+
+onMounted(() => {
+    // makar i timeout, da bismo sačekali da
+    // ga DevExtreme ubaci u DOM
+    setTimeout(() => {
+        document
+            .querySelectorAll('dx-license')
+            .forEach(el => {
+                el.style.display = "none !important";
+                console.log();
+            });
+    }, 0);
+});
 </script>
 <style scoped>
     *{
         font-family: "Poppins", sans-serif;
     }
+    .layout {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;        /* cele vidljive visine ekrana */
+    }
+    .content {
+        flex: 1;                  /* raste i skuplja se da popuni prostor */
+        /* opciono: min-height: 0;  -> ponekad potrebno da bi overflow radio u flex-itemu */
+    }
+
 </style>

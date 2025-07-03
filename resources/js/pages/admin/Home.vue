@@ -13,7 +13,6 @@
                     <button type="button">Zatvori</button>
                 </DialogClose>
             </DialogContent>
-            <!--            </Dialog>-->
         </DialogRoot>
     </admin-layout>
 </template>
@@ -31,7 +30,7 @@ import {DialogRoot} from "reka-ui";
 import Button from "@/components/ui/button/Button.vue";
 import NoticeForm from '@/components/myComponents/forms/NoticeForm.vue';
 import axios from "axios";
-// const store = useStore();
+
 const dialog = reactive({
     isDialogOpen : false,
     dialogTitle : '',
@@ -57,7 +56,8 @@ const headersOfTable = ref<HeadersIntefrace[]>([
     },
     {
         "name": "content",
-        'label': "Opis"
+        'label': "Opis",
+        'type':"html"
     },
     {
         "name": "category",
@@ -65,27 +65,41 @@ const headersOfTable = ref<HeadersIntefrace[]>([
     },
     {
         "name": "is_published",
-        'label': "Da li je vidljivo"
+        'label': "Da li je vidljivo",
+        "type" : 'toggle',
+        'actions':async (values)=>{
+            const data = new FormData();
+            data.append('is_published',values.checked);
+            data.append('_method', 'PATCH');
+
+            const response = await axios.post(`/admin/obavestenja/${values.id}/published`,data,{
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            await getAllData();
+        }
     },
     {
-        "name": "published_at",
-        'label': "Postavljeno(datumo)"
+        "name": "created_at",
+        'label': "Postavljeno(datum)"
     },
     {
         "name": "edit",
-        'label': "Izmeni sobu",
+        'label': "Izmeni obavestenje",
         'actions' : (row)=>{
             if(!row) return;
             dialog.isDialogOpen = true;
             dialog.dialogTitle = 'Izmeni obavestenje';
-            dialog.dialogComponent= RoomForm;
+            dialog.dialogComponent= NoticeForm;
             dialog.dialogProps = {'id':row.id,'type':'edit'};
         },
         "class":"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
     },
     {
         "name": "delete",
-        'label': "Obrisi sobu",
+        'label': "Obrisi obavestenje",
         'actions' : (row)=>{
             dialog.isDialogOpen = true;
             dialog.dialogTitle = 'Da li ste sigurni da zelite da obrisete sobu?';
@@ -102,48 +116,6 @@ const headersOfTable = ref<HeadersIntefrace[]>([
 const dataForBody = ref<RoomData[]>([]);
 const closeModal = ref(false);
 //Ovo su realni podaci sa apija!
-// const dataForBody = ref<RoomData[]>([
-//     {
-//         id: 1,
-//         name : 'Proba sobe',
-//         img : "nema putanja koja ne postoji sada",
-//         description : "Opis sobe",
-//         address : "Adresa sobe",
-//         size : "23",
-//         max_adults : 3,
-//         max_children : 2
-//     },
-//     {
-//         id: 1,
-//         name : 'Proba sobe 2',
-//         img : "nema putanja koja ne postoji sada",
-//         description : "Opis sobe",
-//         address : "Adresa sobe",
-//         size : "23",
-//         max_adults : 3,
-//         max_children : 2
-//     },
-//     {
-//         id: 1,
-//         name : 'Proba sobe 3',
-//         img : "nema putanja koja ne postoji sada",
-//         description : "Opis sobe",
-//         address : "Adresa sobe",
-//         size : "23",
-//         max_adults : 3,
-//         max_children : 2
-//     },
-//     {
-//         id: 1,
-//         name : 'Proba sobe 4',
-//         img : "nema putanja koja ne postoji sada",
-//         description : "Opis sobe",
-//         address : "Adresa sobe",
-//         size : "23",
-//         max_adults : 3,
-//         max_children : 2
-//     }
-// ]);
 
 const addNewRooms = ()=>{
     dialog.isDialogOpen = true;
