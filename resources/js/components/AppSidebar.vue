@@ -19,6 +19,11 @@ const mainNavItems: NavItem[] = [
         href: '/admin/rasporedi',
         icon: LayoutGrid,
     },
+    {
+        title: 'Osoblje',
+        href: '/admin/osoblje',
+        icon: LayoutGrid,
+    },
 ];
 
 const footerNavItems: NavItem[] = [

@@ -2,7 +2,7 @@
     <header>
         <div class="bg-red-800">
             <div class="py-1 content mx-auto max-w-screen-xl">
-                <ul class="flex gap-4">
+                <ul class="flex flex-wrap !justify-center sm:!justify-start gap-4">
                     <li>
                         <a class="text-sm text-gray-50 flex gap-2 items-center" href="mailto:office@vsdositej.edu.rs"><PhEnvelope :size="20" />office@vsdositej.edu.rs</a>
                     </li>
@@ -28,125 +28,137 @@
                     </button>
                 </div>
                 <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                    <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                    <ul class="moje flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                         <li>
                             <Link :class="[isActive('/') ? 'text-red-800' : 'text-gray-900']" href="/" class="font-bold block py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0 lg:p-0">Почетна</Link>
                         </li>
                         <li>
-                            <Link href="#" data-dropdown-trigger="hover" data-dropdown-toggle="dropdown" class="group font-bold py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0  lg:p-0 flex items-center">О нама <PhArrowDown class="transition-transform duration-400 group-hover:rotate-180 ml-1" :size="12" /></Link>
-                            <div id="dropdown" class="z-1000 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-700" aria-labelledby="dropdownDefaultButton">
-                                    <li>
-                                        <Link :class="[isActive('/o-nama') ? 'text-red-800' : 'text-gray-900']"  href="/o-nama" class="font-bold font-boldtext-gray-900 block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">О школи</Link>
-                                    </li>
-                                    <li class="relative group">
-                                        <a href="#" data-dropdown-trigger="hover"  data-dropdown-placement="right-end" data-dropdown-toggle="dropdownRightEnd" class="relative group font-bold flex items-center gap-2 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Особље <PhArrowRight :size="12" /></a>
-                                        <div id="dropdownRightEnd" data-dropdown-placement="right-start" class="absolute top-0 left-full ml-2 z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
-                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
-                                                <li>
-                                                    <Link :class="[isActive('/osoblje/nastavno') ? 'text-red-800' : 'text-gray-900']" href="/osoblje/nastavno" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Наставно</Link>
-                                                </li>
-                                                <li>
-                                                    <Link :class="[isActive('/osoblje/nenastavno') ? 'text-red-800' : 'text-gray-900']" href="/osoblje/nenastavno" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ненаставно</Link>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <Link :class="[isActive('/važni-dokumenti') ? 'text-red-800' : 'text-gray-900']" href="/važni-dokumenti" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Важни документи</Link>
-                                    </li>
-                                </ul>
-                            </div>
+                            <Menu>
+                                <button class="font-bold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">О нама <PhArrowDown class="transition-transform duration-400 group-hover:rotate-180 ml-1" :size="12" /></button>
+                                <template #popper>
+                                    <ul class="py-2 text-md  text-gray-700 ">
+                                        <li>
+                                            <Link :class="[isActive('/o-nama') ? 'text-red-800' : 'text-gray-900']"  href="/o-nama" class="font-bold font-boldtext-gray-900 block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">О школи</Link>
+                                        </li>
+                                        <li class="relative group">
+                                            <Menu placement="right-start">
+                                                <span  class="font-bold flex items-center px-4">Особље <PhArrowRight :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></span>
+                                                <template #popper>
+                                                    <ul class="py-2 text-md text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
+                                                        <li>
+                                                            <Link :class="[isActive('/osoblje/nastavno') ? 'text-red-800' : 'text-gray-900']" href="/osoblje/nastavno" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Наставно</Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link :class="[isActive('/osoblje/nenastavno') ? 'text-red-800' : 'text-gray-900']" href="/osoblje/nenastavno" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ненаставно</Link>
+                                                        </li>
+                                                    </ul>
+                                                </template>
+                                            </Menu>
+                                        </li>
+                                        <li>
+                                            <Link :class="[isActive('/važni-dokumenti') ? 'text-red-800' : 'text-gray-900']" href="/važni-dokumenti" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Важни документи</Link>
+                                        </li>
+                                    </ul>
+                                </template>
+                            </Menu>
+
                         </li>
                         <li>
-                            <a href="#" data-dropdown-trigger="hover" data-dropdown-toggle="dropdownHover" class="group font-bold flex py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0 lg:p-0 items-center">Студијски програми <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/>
-                            </a>
-                            <div id="dropdownHover" class="z-100 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-65 dark:bg-gray-700">
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                                    <li>
-                                        <Link :class="[isActive('/informatika') ? 'text-red-800' : 'text-gray-900']" href="/informatika" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика</Link>
-                                    </li>
-                                    <li>
-                                        <Link :class="[isActive('/ekonomija') ? 'text-red-800' : 'text-gray-900']" href="/ekonomija" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија</Link>
-                                    </li>
-                                    <li>
-                                        <Link :class="[isActive('/informatika-master') ? 'text-red-800' : 'text-gray-900']" href="/informatika-master" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика (Мастер студије)</Link>
-                                    </li>
-                                    <li>
-                                        <Link :class="[isActive('/ekonomija-master') ? 'text-red-800' : 'text-gray-900']" href="/ekonomija-master" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија (Мастер студије)</Link>
-                                    </li>
-                                </ul>
-                            </div>
+                            <Menu>
+                                <button class="font-bold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">Студијски програми <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
+                                <template #popper>
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                                        <li>
+                                            <Link :class="[isActive('/informatika') ? 'text-red-800' : 'text-gray-900']" href="/informatika" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика</Link>
+                                        </li>
+                                        <li>
+                                            <Link :class="[isActive('/ekonomija') ? 'text-red-800' : 'text-gray-900']" href="/ekonomija" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија</Link>
+                                        </li>
+                                        <li>
+                                            <Link :class="[isActive('/informatika-master') ? 'text-red-800' : 'text-gray-900']" href="/informatika-master" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика (Мастер студије)</Link>
+                                        </li>
+                                        <li>
+                                            <Link :class="[isActive('/ekonomija-master') ? 'text-red-800' : 'text-gray-900']" href="/ekonomija-master" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија (Мастер студије)</Link>
+                                        </li>
+                                    </ul>
+                                </template>
+                            </Menu>
                         </li>
                         <li>
-                            <Link href="#" data-dropdown-trigger="hover" data-dropdown-toggle="dropdownHover2" class="group font-bold flex py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0  lg:p-0 items-center">Школа <PhArrowDown class="transition-transform duration-400 group-hover:rotate-180 ml-1" :size="12" /></Link>
-                            <div id="dropdownHover2" class="z-100 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                                    <li>
-                                        <Link :class="[isActive('/raspored/ispita') ? 'text-red-800' : 'text-gray-900']" href="/raspored/ispita" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Распоред испита</Link>
-                                    </li>
-                                    <li>
-                                        <Link :class="[isActive('/raspored/nastave') ? 'text-red-800' : 'text-gray-900']" href="/raspored/nastave" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Распоред наставе</Link>
-                                    </li>
-                                </ul>
-                            </div>
+                            <Menu>
+                                <button class="font-bold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">Школа <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
+                                <template #popper>
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                                        <li>
+                                            <Link :class="[isActive('/raspored/ispita') ? 'text-red-800' : 'text-gray-900']" href="/raspored/ispita" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Распоред испита</Link>
+                                        </li>
+                                        <li>
+                                            <Link :class="[isActive('/raspored/nastave') ? 'text-red-800' : 'text-gray-900']" href="/raspored/nastave" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Распоред наставе</Link>
+                                        </li>
+                                    </ul>
+                                </template>
+                            </Menu>
                         </li>
                         <li>
-                            <Link href="#" data-dropdown-trigger="hover" data-dropdown-toggle="dropdownHover3" class="group font-bold py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0 lg:p-0 flex items-center">Упис <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></Link>
-                            <div id="dropdownHover3" class="z-100 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                                    <li>
-                                        <Link :class="[isActive('/cenovnik') ? 'text-red-800' : 'text-gray-900']"   href="/cenovnik" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ценовник</Link>
-                                    </li>
-                                    <li>
-                                        <Link :class="[isActive('/prijava') ? 'text-red-800' : 'text-gray-900']" href="/prijava" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава</Link>
-                                    </li>
-                                </ul>
-                            </div>
+                            <Menu>
+                                <button class="font-bold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0 ">Упис <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
+                                <template #popper>
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                                        <li>
+                                            <Link :class="[isActive('/cenovnik') ? 'text-red-800' : 'text-gray-900']"   href="/cenovnik" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ценовник</Link>
+                                        </li>
+                                        <li>
+                                            <Link :class="[isActive('/prijava') ? 'text-red-800' : 'text-gray-900']" href="/prijava" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава</Link>
+                                        </li>
+                                    </ul>
+                                </template>
+                            </Menu>
                         </li>
                         <li>
-                            <Link :class="[isActive('/kontakt') ? 'text-red-800' : 'text-gray-900']" href="/kontakt" class="font-bold block py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0 lg:p-0">Контакт</Link>
+                            <Link :class="[isActive('/kontakt') ? 'text-red-800' : 'text-gray-900']" href="/kontakt" class="font-bold block !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0 text-gray-900  hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0 lg:p-0">Контакт</Link>
                         </li>
                         <li>
-                            <Link href="#" data-dropdown-trigger="hover" data-dropdown-toggle="dropdownHover4" class="font-bold group flex items-center py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0 lg:p-0">Студентски инфо сервис <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></Link>
-                            <div id="dropdownHover4" class="z-100 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
-                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-<!--                                    <li>-->
-<!--                                        <Link :class="[isActive('/upustvo-za-studente') ? 'text-red-800' : 'text-gray-900']" href="/upustvo-za-studente" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство</Link>-->
-<!--                                    </li>-->
-                                    <li>
-                                        <Link :class="[isActive('/prijava-ispita') ? 'text-red-800' : 'text-gray-900']"  href="/prijava-ispita" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава испита</Link>
-                                    </li>
-                                    <li class="relative group">
-                                        <Link :class="[isActive('/upustvo-za-studente') ? 'text-red-800' : 'text-gray-900']" data-dropdown-placement="right-end" href="/upustvo-za-studente" data-dropdown-trigger="hover"  data-dropdown-toggle="doubleDropdown3"  class="font-bold flex px-4 py-2 hover:bg-gray-100 items-center">Обрасци <PhArrowRight :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></Link>
-                                        <div id="doubleDropdown3"  class="absolute top-0 right-0  z-10 hidden w-44 bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700">
-                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
-                                                <li>
-                                                    <a href="/assets/files/Obrazac-za-prijavu-zavrsnog-rada-I-stepena.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава завршног рада</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/assets/files/Obrazac-za-prijavu-zavrsnog-rada-na-master-studijama.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава мастер рада</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/assets/files/Упутство-за-израду-завршног-рада.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство за израду дипломског рада</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/assets/files/UPUTSTVO-ZA-IZRADU-ZAVRSNOG-RADA-NA-MASTER-STUDIJAMA.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство за израду мастер рада</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <Link :class="[isActive('/raspored-aktivnosti') ? 'text-red-800' : 'text-gray-900']" href="/raspored-aktivnosti" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Активности и календари</Link>
-                                    </li>
-                                    <li>
-                                        <Link :class="[isActive('/biblioteka') ? 'text-red-800' : 'text-gray-900']" href="/biblioteka" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Библиотека</Link>
-                                    </li>
-                                    <li>
-                                        <a href="https://moodle.vsdositej.edu.rs/login/index.php" target="_blank" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Moodle платформа</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <Menu>
+                                <button class="font-bold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">Студентски инфо сервис <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
+                                <template #popper>
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                                        <li>
+                                            <Link :class="[isActive('/prijava-ispita') ? 'text-red-800' : 'text-gray-900']"  href="/prijava-ispita" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава испита</Link>
+                                        </li>
+                                        <li class="relative group">
+                                            <Menu placement="right-start">
+                                                <Link :class="[isActive('/upustvo-za-studente') ? 'text-red-800' : 'text-gray-900']" data-dropdown-placement="right-end" href="/upustvo-za-studente" data-dropdown-trigger="hover"  data-dropdown-toggle="doubleDropdown3"  class="font-bold flex px-4 py-2 hover:bg-gray-100 items-center">Обрасци <PhArrowRight :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></Link>
+                                                <template #popper>
+                                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
+                                                        <li>
+                                                            <a href="/assets/files/Obrazac-za-prijavu-zavrsnog-rada-I-stepena.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава завршног рада</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/assets/files/Obrazac-za-prijavu-zavrsnog-rada-na-master-studijama.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава мастер рада</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/assets/files/Упутство-за-израду-завршног-рада.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство за израду дипломског рада</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/assets/files/UPUTSTVO-ZA-IZRADU-ZAVRSNOG-RADA-NA-MASTER-STUDIJAMA.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство за израду мастер рада</a>
+                                                        </li>
+                                                    </ul>
+                                                </template>
+                                            </Menu>
+                                        </li>
+                                        <li>
+                                            <Link :class="[isActive('/raspored-aktivnosti') ? 'text-red-800' : 'text-gray-900']" href="/raspored-aktivnosti" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Активности и календари</Link>
+                                        </li>
+                                        <li>
+                                            <Link :class="[isActive('/biblioteka') ? 'text-red-800' : 'text-gray-900']" href="/biblioteka" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Библиотека</Link>
+                                        </li>
+                                        <li>
+                                            <a href="https://moodle.vsdositej.edu.rs/login/index.php" target="_blank" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Moodle платформа</a>
+                                        </li>
+                                    </ul>
+                                </template>
+                            </Menu>
+
                         </li>
                     </ul>
                 </div>
@@ -159,7 +171,7 @@ import {PhArrowDown, PhArrowRight, PhEnvelope, PhInstagramLogo, PhPhoneCall} fro
 import {Link} from "@inertiajs/vue3";
 import {ref,onMounted,onUnmounted,computed} from 'vue';
 import { usePage } from '@inertiajs/vue3';
-
+import { Menu } from 'floating-vue';
 const page = usePage();
 const currentUrl = computed(() => page.url);
 
@@ -211,4 +223,5 @@ onUnmounted(() => {
     header{
         border-bottom: 1px solid rgba(0,0,0,0.1);
     }
+
 </style>

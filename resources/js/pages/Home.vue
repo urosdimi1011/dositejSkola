@@ -108,7 +108,7 @@ onMounted(async ()=>{
         </div>
         <div class="notification-block mx-auto max-w-screen-xl">
             <div class="header-block my-10">
-                <h2 class="text-3xl text-gray-950 font-medium">Обавештења
+                <h2 class="!text-2xl sm:!text-3xl text-gray-950 font-medium">Обавештења
                     <span class="underline w-1/12 bg-red-800 h-1 block rounded-sm"></span>
                 </h2>
                 <div class="all-notices">
@@ -119,17 +119,17 @@ onMounted(async ()=>{
         </div>
         <div data-aos="fade-left" class="contact-info-block mx-auto max-w-screen-xl my-15">
             <div class="header-block my-10">
-                <h2 class="text-3xl text-gray-950 font-medium">Стојимо вам на располагању
+                <h2 class="!text-2xl sm:!text-3xl text-gray-950 font-medium">Стојимо вам на располагању
                     <span class="underline w-1/12 bg-red-800 h-1 block rounded-sm"></span>
                 </h2>
-                <h3 class="text-2xl mt-5 text-gray-500">Можете нас контактирати путем телефона, имејла, контакт форме или нас лично посетити у <a class="font-bold hover:text-red-800 transition" href="https://www.google.com/maps/place/%D0%9D%D1%83%D1%88%D0%B8%D1%9B%D0%B5%D0%B2%D0%B0+12a,+%D0%91%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D0%B4+11000/@44.8138225,20.4608052,17.23z/data=!4m6!3m5!1s0x475a7ab1e1862623:0x4a8b8e9bd64f6dd5!8m2!3d44.8140885!4d20.4624288!16s%2Fg%2F11q2nf2_9y?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">Нушићева 12a, Булевар Војводе путника 7</a> </h3>
+                <h3 class="!text-xl sm:!text-2xl mt-5 text-gray-500">Можете нас контактирати путем телефона, имејла, контакт форме или нас лично посетити у <a class="font-bold hover:text-red-800 transition" href="https://www.google.com/maps/place/%D0%9D%D1%83%D1%88%D0%B8%D1%9B%D0%B5%D0%B2%D0%B0+12a,+%D0%91%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D0%B4+11000/@44.8138225,20.4608052,17.23z/data=!4m6!3m5!1s0x475a7ab1e1862623:0x4a8b8e9bd64f6dd5!8m2!3d44.8140885!4d20.4624288!16s%2Fg%2F11q2nf2_9y?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">Нушићева 12a, Булевар Војводе путника 7</a> </h3>
             </div>
             <div  class="content-block grid grid-cols-1 sm:grid-cols-2 grid-rows-2 gap-10">
                 <div class="info flex items-center gap-3 justify-start sm:justify-center">
                     <div class="img-block">
                         <PhPhoneCall :size="42" weight="light" />
                     </div>
-                    <div class="content text-xl">
+                    <div class="content !text-lg sm:!text-xl">
                         <h4 class="font-bold text-red-800 my-2">Студентска служба - Упис</h4>
                         <p class="text-gray-500 mb-4">Радним данима од 09 до 16 часова</p>
                         <p class="text-gray-500 mb-4 flex items-center gap-2"> +381 113235500</p>
@@ -139,17 +139,17 @@ onMounted(async ()=>{
                     <div class="img-block">
                         <PhEnvelope :size="42" weight="light"/>
                     </div>
-                    <div class="content text-xl">
+                    <div class="content !text-lg sm:!text-xl">
                         <h4 class="font-bold text-red-800 my-2">Електронска пошта</h4>
                         <p class="text-gray-500 mb-4">Радним данима од 09 до 16 часова</p>
-                        <p class="text-gray-500 mb-4 flex items-center gap-2"> vsdositej@yahoo.com</p>
+                        <p class="text-gray-500 mb-4 flex items-center gap-2"> office@vsdositej.edu.rs</p>
                     </div>
                 </div>
                 <div class="info flex items-center gap-3 justify-start sm:justify-center">
                     <div class="img-block">
                         <PhPhoneCall :size="42" weight="light" />
                     </div>
-                    <div class="content text-xl">
+                    <div class="content !text-lg sm:!text-xl">
                         <h4 class="font-bold text-red-800 my-2">За сваки тип питања</h4>
                         <p class="text-gray-500 mb-4">Радним данима од 09 до 16 часова</p>
                         <p class="text-gray-500 mb-4 flex items-center">+381 113235500</p>
@@ -159,7 +159,7 @@ onMounted(async ()=>{
                     <div class="img-block">
                         <PhPhoneCall :size="42" weight="light" />
                     </div>
-                    <div class="content text-xl">
+                    <div class="content !text-lg sm:!text-xl">
                         <h4 class="font-bold text-red-800 my-2">Декант</h4>
                         <p class="text-gray-500 mb-4">Радним данима од 10 до 14 часова</p>
                         <p class="text-gray-500 mb-4 flex items-center">+381 113235500</p>
@@ -169,12 +169,12 @@ onMounted(async ()=>{
         </div>
         <div data-aos="fade-up" class="smerovi mx-auto max-w-screen-xl">
             <div  class="header-bigger-block text-gray-950 text-center my-10">
-                <h2 class="text-3xl font-medium"><strong class="font-bold">Основне</strong> академске студије </h2>
+                <h2 class="!text-2xl sm:!text-3xl font-medium"><strong class="font-bold">Основне</strong> академске студије </h2>
                 <span class="underline mx-auto w-1/9 bg-red-800 h-1 block rounded-sm"></span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 place-items-center gap-10 smerovi-dva justify-center text-gray-900 ">
-                <div class="smer relative overflow-hidden w-[60%] shadow-lg grid grid-flow-row group hover:scale-105 transition-transform rounded-lg border-2 border-red-800/40">
+                <div class="smer relative overflow-hidden !w-[85%] sm:!w-[60%] shadow-lg grid grid-flow-row group hover:scale-105 transition-transform rounded-lg border-2 border-red-800/40">
                     <span class="absolute top-0 left-0 h-[2px] bg-red-800 w-0 group-hover:w-full transition-all duration-200"></span>
                     <span class="absolute top-0 right-0 w-[2px] bg-red-800 h-0 group-hover:h-full transition-all duration-200 delay-100"></span>
                     <span class="absolute bottom-0 right-0 h-[2px] bg-red-800 w-0 group-hover:w-full transition-all duration-200 delay-200"></span>
@@ -192,7 +192,7 @@ onMounted(async ()=>{
                         </Link>
                     </div>
                 </div>
-                <div class="smer relative overflow-hidden w-[60%] shadow-lg grid grid-flow-row group hover:scale-105 transition-transform rounded-lg border-2 border-red-800/40">
+                <div class="smer relative overflow-hidden !w-[85%] sm:!w-[60%] shadow-lg grid grid-flow-row group hover:scale-105 transition-transform rounded-lg border-2 border-red-800/40">
                     <span class="absolute top-0 left-0 h-[2px] bg-red-800 w-0 group-hover:w-full transition-all duration-200"></span>
                     <span class="absolute top-0 right-0 w-[2px] bg-red-800 h-0 group-hover:h-full transition-all duration-200 delay-100"></span>
                     <span class="absolute bottom-0 right-0 h-[2px] bg-red-800 w-0 group-hover:w-full transition-all duration-200 delay-200"></span>
@@ -228,7 +228,7 @@ onMounted(async ()=>{
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 place-items-center gap-10 smerovi-dva justify-center text-gray-900 ">
-                <div class="smer relative overflow-hidden w-[60%] shadow-lg grid grid-flow-row group hover:scale-105 transition-transform rounded-lg border-2 border-red-800/40">
+                <div class="smer relative overflow-hidden !w-[85%] sm:!w-[60%] shadow-lg grid grid-flow-row group hover:scale-105 transition-transform rounded-lg border-2 border-red-800/40">
                     <span class="absolute top-0 left-0 h-[2px] bg-red-800 w-0 group-hover:w-full transition-all duration-200"></span>
                     <span class="absolute top-0 right-0 w-[2px] bg-red-800 h-0 group-hover:h-full transition-all duration-200 delay-100"></span>
                     <span class="absolute bottom-0 right-0 h-[2px] bg-red-800 w-0 group-hover:w-full transition-all duration-200 delay-200"></span>
@@ -241,7 +241,7 @@ onMounted(async ()=>{
                         <Link href="/ekonomija-master" class="border rounded py-1 border-red-800 px-2 cursor-pointer hover:bg-orange-50 transition">Сазнај више</Link>
                     </div>
                 </div>
-                <div class="smer relative overflow-hidden w-[60%] shadow-lg grid grid-flow-row group hover:scale-105 transition rounded-lg border-2 border-red-800/40">
+                <div class="smer relative overflow-hidden !w-[85%] sm:!w-[60%] shadow-lg grid grid-flow-row group hover:scale-105 transition rounded-lg border-2 border-red-800/40">
                     <span class="absolute top-0 left-0 h-[2px] bg-red-800 w-0 group-hover:w-full transition-all duration-200"></span>
                     <span class="absolute top-0 right-0 w-[2px] bg-red-800 h-0 group-hover:h-full transition-all duration-200 delay-100"></span>
                     <span class="absolute bottom-0 right-0 h-[2px] bg-red-800 w-0 group-hover:w-full transition-all duration-200 delay-200"></span>

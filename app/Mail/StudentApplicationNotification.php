@@ -12,32 +12,25 @@ use Illuminate\Queue\SerializesModels;
 class StudentApplicationNotification extends Mailable
 {
     use Queueable, SerializesModels;
-    public $data;
-    public function __construct(array $data)
+
+    public $student;
+
+    public function __construct(array $student)
     {
-        $this->data = $data;
+        $this->student = $student;
     }
-    public function envelope(): Envelope
+
+    public function envelope()
     {
         return new Envelope(
-            subject: 'Student Application Notification',
+            subject: 'Upis novog kandidata',
         );
     }
-    public function content(): Content
+    public function content()
     {
         return new Content(
-            view: 'view.emails.',
+            view: 'emails.studentApplication',
         );
     }
-    public function attachments(): array
-    {
-        return [];
-    }
-    public function build()
-    {
-        return $this
-            ->subject('Upis novoga studenta')
-            ->view('emails.student-created')
-            ->with('student', $this->data);
-    }
+
 }

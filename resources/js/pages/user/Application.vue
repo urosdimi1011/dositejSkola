@@ -34,14 +34,14 @@
                         <ErrorMessage class="w-full flex items-start mt-2 text-xs text-slate-400" name="datumRodjenja" />
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
-                        <Field type="text" name="mestoRodjenje" id="mestoRodjenje" class="block py-2.5 px-0 w-full text-sm !text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="mestoRodjenje" class="peer-focus:font-medium absolute text-sm text-gray-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Место рођења (обавезно)</label>
-                        <ErrorMessage class="w-full flex items-start mt-2 text-xs text-slate-400" name="mestoRodjenje" />
+                        <Field type="text" name="mestoRodjenja" id="mestoRodjenja" class="block py-2.5 px-0 w-full text-sm !text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="mestoRodjenja" class="peer-focus:font-medium absolute text-sm text-gray-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Место рођења (обавезно)</label>
+                        <ErrorMessage class="w-full flex items-start mt-2 text-xs text-slate-400" name="mestoRodjenja" />
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
-                        <Field type="text" name="mestoStalnogRodjenje" id="mestoStalnogRodjenje" class="block py-2.5 px-0 w-full text-sm !text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <Field type="text" name="mestoStalnogRodjenja" id="mestoStalnogRodjenja" class="block py-2.5 px-0 w-full text-sm !text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="mestoRodjenje" class="peer-focus:font-medium absolute text-sm text-gray-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Место сталног становања (обавезно)</label>
-                        <ErrorMessage class="w-full flex items-start mt-2 text-xs text-slate-400" name="mestoStalnogRodjenje" />
+                        <ErrorMessage class="w-full flex items-start mt-2 text-xs text-slate-400" name="mestoStalnogRodjenja" />
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
                         <Field type="text" name="mestoZaVremeStudiranja" id="mestoZaVremeStudiranja" class="block py-2.5 px-0 w-full text-sm !text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
@@ -87,13 +87,20 @@
                     </div>
                     <button type="submit" class="cursor-pointer mt-3 inline-block text-red-700 border border-orange-400 px-3 py-1 text-sm rounded hover:bg-orange-50 transition">Пријави се</button>
                 </Form>
+                <template v-if="messagesError != null">
+                    <div class="error-block">
+                        <ul>
+                            <li class="text-red-800" v-for="message in messagesError.st_program">{{message}}</li>
+                        </ul>
+                    </div>
+                </template>
             </div>
         </div>
     </my-layout>
 </template>
 <script setup>
 import MyLayout from "@/layouts/myLayout.vue";
-import {onMounted} from "vue";
+import {onMounted,ref} from "vue";
 import {initFlowbite} from "flowbite";
 import * as yup from "yup";
 import {Form,Field,ErrorMessage} from 'vee-validate';
@@ -142,6 +149,8 @@ onMounted(()=>{
     initFlowbite();
 })
 
+const messagesError = ref(null);
+
 
 const schema = yup.object({
     ime: yup
@@ -165,11 +174,11 @@ const schema = yup.object({
         .date()
         .required('Молимо унесите датум рођења.'),
 
-    mestoRodjenje: yup
+    mestoRodjenja: yup
         .string()
         .required('Молимо унесите место рођења.'),
 
-    mestoStalnogRodjenje: yup
+    mestoStalnogRodjenja: yup
         .string()
         .required('Молимо унесите место сталног становања.'),
 
@@ -203,13 +212,11 @@ const schema = yup.object({
 });
 
 const submit = async (values)=>{
-    console.log(values);
-
-
-    //Ovde ide slanje podataka
-
-    const response = await axios.post('/prijaviStudenta',values);
-
-
+    try{
+        const response = await axios.post('/prijaviStudenta',values);
+    }
+    catch (ex){
+        messagesError.value  = ex.response.data.errors;
+    }
 }
 </script>

@@ -25,20 +25,20 @@ class StudentApplicationRequest extends FormRequest
             'ime'                       => 'required|string|max:255',
             'prezime'                   => 'required|string|max:255',
             'roditelj'                  => 'required|string|max:255',
-            'jmbg'                      => 'required|digits:13|unique:students,jmbg',
+            'jmbg'                      => 'required|digits:13',
             'datumRodjenja'             => 'required|date|before:today',
             'mestoRodjenja'             => 'required|string|max:255',
             'mestoStalnogRodjenja'      => 'required|string|max:255',
             'mestoZaVremeStudiranja'    => 'nullable|string|max:255',
             'drzavljanstvo'             => 'required|string|max:255',
             'nacionalnost'              => 'required|string|max:255',
-            'st_program'                => 'required|in:osnovne,master,drugi',
+            'st_program'                => 'required',
             'zavrsenaSrednjaSkola'      => 'required|string|max:255',
             'mobilniTelefon'            => [
                 'required',
                 'regex:/^(06\d{7,8})$/'
             ],
-            'email'                     => 'required|email|unique:students,email',
+            'email'                     => 'required|email',
         ];
     }
 

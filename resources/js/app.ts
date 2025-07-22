@@ -12,6 +12,8 @@ import { createApp, h } from 'vue';
 import { ZiggyVue } from 'ziggy-js';
 import { initializeTheme } from './composables/useAppearance';
 import { createHead } from '@vueuse/head'
+import FloatingVue from 'floating-vue'
+import 'floating-vue/dist/style.css';
 // import ToastPlugin from 'vue-toast-notification';
 // import 'vue-toast-notification/dist/theme-sugar.css'
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
@@ -24,6 +26,7 @@ createInertiaApp({
         const app = createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
+            .use(FloatingVue)
             .use(head)
             .mount(el);
         AOS.init({ once: true, duration: 500 })

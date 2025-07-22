@@ -108,6 +108,8 @@ Route::get('/informatika-master', function () {
     return Inertia::render('user/InformationMaster');
 })->name('InformatikaMaster');
 
+Route::get('/osoba/{slug}', [\App\Http\Controllers\StaffMemebersController::class,'getOneWithTemplate'])->name('osobaJedna');
+
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -120,6 +122,27 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/rasporedi',function () {
         return Inertia::render('admin/Scheduls');
     })->name('rasporedi');
+
+
+    Route::get('/osoblje',function () {
+        return Inertia::render('admin/StaffMembers');
+    })->name('osoblje');
+
+    Route::get('/osobljeSvo', [\App\Http\Controllers\StaffMemebersController::class, 'getAll'])->name('osobljeSvo');
+    Route::get('/osoblje/{id}', [\App\Http\Controllers\StaffMemebersController::class, 'getOne'])->name('osoba');
+    Route::post('/osoblje', [\App\Http\Controllers\StaffMemebersController::class, 'store'])->name('osobaDodavanje');
+    Route::patch(
+        '/osoblje/{member}',
+        [\App\Http\Controllers\StaffMemebersController::class, 'update']
+    )->name('osobljeIzmena');
+
+
+    Route::get('/pozicije',[\App\Http\Controllers\PositionController::class,'getAll'])->name('pozicije');
+
+//    Route::post(
+//        '/staff-members/{member}/documents',
+//        [\App\Http\Controllers\StaffDocumentController::class, 'store']
+//    )->name('staff-members.documents.store');
 
     Route::post('/obavestenja', [\App\Http\Controllers\NoticeController::class, 'store'])->name('obavestenjeDodavanje');
     Route::patch('/obavestenja/{id}', [\App\Http\Controllers\NoticeController::class, 'update'])->name('obavestenjeIzmena');
@@ -142,6 +165,11 @@ Route::get('/obavestenjaApp', [\App\Http\Controllers\NoticeController::class, 'g
 Route::get('/sva-obavestenja', [\App\Http\Controllers\NoticeController::class, 'getAllInApp'])->name('obavestenjeSvaUPrikazu');
 
 Route::post('/prijaviStudenta',[\App\Http\Controllers\StudentController::class,'sendMail'])->name('slanjeEPoste');
+Route::post('/kontakt',[\App\Http\Controllers\StudentController::class,'sendMail'])->name('slanjeEPoste');
+Route::get('/osobljeSvo', [\App\Http\Controllers\StaffMemebersController::class, 'getAll'])->name('osobljeSvo');
+
+Route::get('/osobljeSvoSaPozicijama', [\App\Http\Controllers\StaffMemebersController::class, 'getAllWithPosition'])->name('osobljeSvo');
+
 
 Route::get('/o-nama', function () {
 
