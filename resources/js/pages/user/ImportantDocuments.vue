@@ -30,37 +30,37 @@ const documents = reactive([
     {
         "id":2,
         "name":"Дозвола за рад 31.05.2016.",
-        "href":"/assets/files/Дозвола-за-рад-31.05.2016..pdf"
+        "href":"/assets/files/Dovola-za-rad-31.05.2016..pdf"
     },
     {
         "id":3,
         "name":"Политика обезбеђења квалитета 09.02.2017.",
-        "href":"/assets/files/Политика-обезбеђења-квалитета-09.02.2017..pdf"
+        "href":"/assets/files/Politika-obezbeđenja-kvaliteta-09.02.2017..pdf"
     },
     {
         "id":4,
         "name":"Уверење о акредитацији 9.02.2018.",
-        "href":"/assets/files/Уверење-о-акредитацији-9.02.2018..pdf"
+        "href":"/assets/files/Uverenje-o-akreditacija-9.02.2018..pdf"
     },
     {
         "id":5,
         "name":"Правилник о самовредновању и обезбеђењу квалитета 3.2.2020.",
-        "href":"/assets/files/"
+        "href":"/assets/files/Pravilnik-o-samovrednovanju-i-obezbedjenju-kvaliteta.pdf"
     },
     {
         "id": 6,
         "name": "Правилник о раду комисије за обезбеђивање квалитета 3.2.2020.",
-        "href":"/assets/files/Правилник-о-раду-комисије-за-обезбеђивање-квалитета-3.2.2020.pdf"
+        "href":"/assets/files/Pravilnik-o-radu-komisije-za-obezbeđivanje-kvaliteta-3.2.2020..pdf"
     },
     {
         "id":7,
         "name":"План научноистраживачког рада 27.10.2022.",
-        "href":"/assets/files/План-научноитраживачког-рада-27.10.2022.pdf"
+        "href":"/assets/files/Plan-naučnoistraživačkog-rada-27.10.2022..pdf"
     },
     {
         "id":8,
         "name":"Финансијски план 29.11.2023.",
-        "href":"/assets/files/Финансијски-план-29.11.2023..pdf"
+        "href":"/assets/files/Finansijski-plan-29.11.2023..pdf"
     }
 ])
 

@@ -5,15 +5,15 @@
         </header-title>
         <div class="informatika-block mx-auto max-w-screen-xl">
             <div class="header-block my-10">
-                <h2 class="text-2xl text-gray-950 font-medium">
+                <h2 class="!text-xl sm:!text-2xl text-gray-950 font-medium">
                     Основне академске студије
                     <span class="underline w-1/12 bg-red-800 h-1 block rounded-sm"></span>
                 </h2>
             </div>
-            <div class="content my-10">
+            <div class="content my-10 !px-2 sm:!px-0">
                 <div class="grid !grid-cols-1 sm:!grid-cols-2 items-center">
                     <div class="content">
-                        <h3 class="text-xl text-gray-500">СТРУКТУРА СТУДИЈСКОГ ПРОГРАМА – ОСНОВНИХ АКАДЕМСКИХ СТУДИЈА</h3>
+                        <h3 class="!text-lg sm:!text-xl text-gray-500">СТРУКТУРА СТУДИЈСКОГ ПРОГРАМА – ОСНОВНИХ АКАДЕМСКИХ СТУДИЈА</h3>
                         <p class="my-5">Студијски програм Информатика је креиран у циљу формирања компетентног педагошког и информатичког кадра. Савладавањем студијског програма студент је способан да професионално обавља послове у области просвете, индустрије, здравства, државној управи, услужних делатности, и сличним областима где су применљива знања из области информатике, као и за наставак студија. Наставни програм је базиран на интеграцији знања из различитих дисциплина, које обезбеђују пројектоване информатичке компетенције којима студенти треба да овладају. Програмски сегменти обезбеђују постизање следећих карактеристика:</p>
                         <ul class="list-disc pl-5 text-red-800">
                             <li class="my-3">Отвореност архитектуре програма (студијски програм није строго хијерархијски обликован и могуће је његово унапређење на принципима конкурентног информатичког тржишта)</li>
@@ -31,7 +31,7 @@
 
 
                 <div data-aos="fade-left" class="content my-10">
-                    <h3 class="text-xl text-gray-500 uppercase">Предмети</h3>
+                    <h3 class="!text-lg sm:!text-xl text-gray-500 uppercase">Предмети</h3>
                     <div class="content grid gap-3 !grid-cols-1 md:!grid-cols-2">
                         <div class="predmeti">
                             <Accordian :items="selection" :active-item-key="1">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div data-aos="fade-left" class="content">
-                    <h3 class="text-xl text-gray-500 uppercase">О студијама</h3>
+                    <h3 class="!text-lg sm:!text-xl text-gray-500 uppercase">О студијама</h3>
                     <p class="my-10">Студијски програм Информатика има <strong>34 обавезних предмета и 10 изборних предмета</strong>, стучну праксу и завршни рад.
                         Школска година се дели на <strong>два семестра</strong>, од којих сваки траје<strong> 15 недеља</strong>.
                         Настава се изводи по наставним плановима и наставним програмима.</p>

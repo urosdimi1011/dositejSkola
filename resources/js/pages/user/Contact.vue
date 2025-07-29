@@ -4,12 +4,9 @@
                 <header-title>
                     <strong class="font-bold">Контакт</strong>
                 </header-title>
-<!--                <div class="header-bigger-block text-gray-950 text-center my-10">-->
-<!--                    <h1 class="text-3xl font-medium"><strong class="font-bold">Kontakt</strong> </h1>-->
-<!--                    <span class="underline mx-auto w-1/9 bg-red-800 h-1 block rounded-sm"></span>-->
-<!--                </div>-->
-                <div class="flex gap-2 justify-between mx-auto max-w-screen-xl">
-                    <div class="contact-info-block w-1/2">
+
+                <div class="flex gap-2 px-3 flex-wrap justify-between mx-auto max-w-screen-xl">
+                    <div class="!text-sm sm:!text-base contact-info-block !w-full sm:!w-1/2">
                         <ul>
                             <li class="flex items-center gap-2 my-6">
                                 <PhMapPinSimpleArea :size="32" /> Нушићева бр.12а
@@ -58,7 +55,7 @@
                             </li>
                         </ul>
                     </div>
-                    <Form @submit="submit" class="max-w-md mx-auto w-1/2" :validation-schema="schema">
+                    <Form @submit="submit" class="max-w-md mx-auto !w-full sm:!w-1/2" :validation-schema="schema">
                         <div class="relative z-0 w-full mb-5 group">
                             <Field type="email" name="firstName" id="firstName" class="block py-2.5 px-0 w-full text-sm !text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                             <label for="firstName" class="peer-focus:font-medium absolute text-sm text-gray-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Ваше име</label>
@@ -90,7 +87,7 @@
                         <button type="submit" class="cursor-pointer mt-3 inline-block text-red-700 border border-orange-400 px-3 py-1 text-sm rounded hover:bg-orange-50 transition">Пошаљи поруку</button>
                     </Form>
                 </div>
-                <div  class="about-maps">
+                <div class="about-maps">
                     <div  class="header-bigger-block text-gray-950 text-center my-10">
                         <h2 class="text-3xl font-medium"><strong class="font-bold">Мапа</strong>  </h2>
                         <span class="underline mx-auto w-1/30 bg-red-800 h-1 block rounded-sm"></span>

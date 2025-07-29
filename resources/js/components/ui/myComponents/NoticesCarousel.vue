@@ -56,7 +56,7 @@
                                 </div>
                                 <Link
                                     :href="`/obavestenja/${notice.slug}`"
-                                    class="mt-3 inline-block text-red-700 border border-orange-400 px-3 py-1 text-sm rounded hover:bg-orange-50 transition"
+                                    class="mt-3 inline-block text-red-700 border border-orange-400 px-3 py-1 !text-xs sm:!text-sm rounded hover:bg-orange-50 transition"
                                 >
                                     Прочитај више →
                                 </Link>

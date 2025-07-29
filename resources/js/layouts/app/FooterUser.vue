@@ -3,13 +3,13 @@
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 ">
             <div class="md:flex md:justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <Link href="/" class="flex items-center">
-                        <img src="/assets/img/logobordo.png" class="h-20 me-3" alt="Dositej Akademija" />
+                    <Link href="/" class="flex items-center !justify-center sm:!justify-start">
+                        <img src="/assets/img/logobordo.png" class="!h-17 sm:!h-20 me-3" alt="Dositej Akademija" />
                     </Link>
                 </div>
-                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                <div class="grid grid-cols-1 gap-2 sm:gap-6 sm:grid-cols-3">
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-header-color uppercase text-shadow-xs">Kontakt</h2>
+                        <h2 class="mb-6 text-sm font-semibold text-header-color uppercase text-shadow-xs">Контакт</h2>
                         <ul class="text-gray-500 font-medium ">
                             <li class="mb-4">
                                 <a href="mailto:office@vsdositej.edu.rs" class="hover:underline flex gap-1 items-center text-header-color"><PhEnvelope :size="20" /> office@vsdositej.edu.rs</a>
@@ -23,18 +23,18 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold uppercase text-header-color text-shadow-xs">Lokacija</h2>
+                        <h2 class="mb-6 text-sm font-semibold uppercase text-header-color text-shadow-xs">Локација</h2>
                         <ul class="text-gray-500 dark:text-gray-400 font-medium">
                             <li class="mb-4">
-                                <a href="mailto:" class="hover:underline flex gap-1 items-center text-header-color"><PhMapPinSimpleArea :size="20" /> Nušićeva 12a, <br/>Bulevar Vojvode putnika 7</a>
+                                <a href="https://maps.app.goo.gl/EjCgZhyMbhPBLG2V9" target="_blank" class="hover:underline flex gap-1 items-center text-header-color"><PhMapPinSimpleArea :size="20" /> Nušićeva 12a, <br/>Bulevar Vojvode putnika 7</a>
                             </li>
                             <li class="mb-4">
-                                <a href="mailto:" class="hover:underline flex gap-1 items-center text-header-color"><PhEnvelope :size="20" /> office@vsdositej.edu.rs</a>
+                                <a href="mailto:office@vsdositej.edu.rs" target="_blank" class="hover:underline flex gap-1 items-center text-header-color"><PhEnvelope :size="20" /> office@vsdositej.edu.rs</a>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-header-color uppercase text-shadow-xs">Korisni linkovi</h2>
+                        <h2 class="mb-6 text-sm font-semibold text-header-color uppercase text-shadow-xs">Корисни линкови</h2>
                         <ul class="text-gray-500 font-medium">
                             <li class="mb-4">
                                 <Link href="/prijava" class="hover:underline text-header-color">Упис</Link>
@@ -51,7 +51,7 @@
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm sm:text-center text-header-color">© 2025 <a href="https://flowbite.com/" class="hover:underline">Dositej Akademija</a>. Sva prava rezervisana.
+                <span class="text-sm sm:text-center text-header-color">© 2025 <a href="/" class="hover:underline">Доситеј Академија</a>. Сва права резервисана.
                 </span>
                 <ul>
                     <li>

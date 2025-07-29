@@ -2,7 +2,7 @@
     <header>
         <div class="bg-red-800">
             <div class="py-1 content mx-auto max-w-screen-xl">
-                <ul class="flex flex-wrap !justify-center sm:!justify-start gap-4">
+                <ul class="flex flex-wrap !justify-center sm:!justify-start !gap-2 sm:!gap-4">
                     <li>
                         <a class="text-sm text-gray-50 flex gap-2 items-center" href="mailto:office@vsdositej.edu.rs"><PhEnvelope :size="20" />office@vsdositej.edu.rs</a>
                     </li>
@@ -18,7 +18,7 @@
         <nav :class="[ isSticky ? 'fixed top-0 left-0 shadow-md translate-y-0 !py-0 slide-down w-full z-50' : 'shadow-xl relative translate-y-0 z-50']" class="bg-white border-gray-200 px-4 lg:px-6 py-4.5 dark:bg-gray-50 text-md ">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl overflow-hidden">
                 <Link href="/" class="flex items-center">
-                    <img src="/assets/img/logobordo.png" :class="[isSticky ? 'hide-logo left-[-42px]' : '']" class="relative mr-3 h-14" alt="Dositej Akademija"/>
+                    <img src="/assets/img/logobordo.png" :class="[isSticky ? 'hide-logo !left-[-35px] sm:!left-[-42px]' : '']" class="relative mr-3 !h-10 sm:!h-14" alt="Dositej Akademija"/>
                 </Link>
                 <div class="flex items-center lg:order-2 lg:hidden">
                     <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
@@ -30,33 +30,36 @@
                 <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                     <ul class="moje flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                         <li>
-                            <Link :class="[isActive('/') ? 'text-red-800' : 'text-gray-900']" href="/" class="font-bold block py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0 lg:p-0">Почетна</Link>
+                            <Link :class="[isActive('/') ? 'text-red-800' : 'text-gray-900']" href="/" class="font-semibold block py-2 pr-4 pl-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0 lg:p-0">Почетна</Link>
                         </li>
                         <li>
-                            <Menu>
-                                <button class="font-bold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">О нама <PhArrowDown class="transition-transform duration-400 group-hover:rotate-180 ml-1" :size="12" /></button>
+                            <Menu :triggers="[isMobile ? 'click' : 'hover']" placement="bottom-start" :shift="6" :offset="4">
+                                <button class="font-semibold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">О нама <PhArrowDown class="transition-transform duration-400 group-hover:rotate-180 ml-1" :size="12" /></button>
                                 <template #popper>
                                     <ul class="py-2 text-md  text-gray-700 ">
                                         <li>
-                                            <Link :class="[isActive('/o-nama') ? 'text-red-800' : 'text-gray-900']"  href="/o-nama" class="font-bold font-boldtext-gray-900 block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">О школи</Link>
+                                            <Link :class="[isActive('/o-nama') ? 'text-red-800' : 'text-gray-900']"  href="/o-nama" class="font-semibold text-gray-900 block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">О школи</Link>
                                         </li>
                                         <li class="relative group">
                                             <Menu placement="right-start">
-                                                <span  class="font-bold flex items-center px-4">Особље <PhArrowRight :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></span>
+                                                <span  class="font-semibold flex items-center px-4">Особље <PhArrowRight :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></span>
                                                 <template #popper>
                                                     <ul class="py-2 text-md text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
                                                         <li>
-                                                            <Link :class="[isActive('/osoblje/nastavno') ? 'text-red-800' : 'text-gray-900']" href="/osoblje/nastavno" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Наставно</Link>
+                                                            <Link :class="[isActive('/osoblje/nastavno') ? 'text-red-800' : 'text-gray-900']" href="/osoblje/nastavno" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Наставно</Link>
                                                         </li>
                                                         <li>
-                                                            <Link :class="[isActive('/osoblje/nenastavno') ? 'text-red-800' : 'text-gray-900']" href="/osoblje/nenastavno" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ненаставно</Link>
+                                                            <Link :class="[isActive('/osoblje/nenastavno') ? 'text-red-800' : 'text-gray-900']" href="/osoblje/nenastavno" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ненаставно</Link>
                                                         </li>
                                                     </ul>
                                                 </template>
                                             </Menu>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/važni-dokumenti') ? 'text-red-800' : 'text-gray-900']" href="/važni-dokumenti" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Важни документи</Link>
+                                            <Link :class="[isActive('/važni-dokumenti') ? 'text-red-800' : 'text-gray-900']" href="/važni-dokumenti" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Важни документи</Link>
+                                        </li>
+                                        <li>
+                                            <Link :class="[isActive('/akreditacija') ? 'text-red-800' : 'text-gray-900']" href="/akreditacija" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Аикредитације</Link>
                                         </li>
                                     </ul>
                                 </template>
@@ -64,96 +67,96 @@
 
                         </li>
                         <li>
-                            <Menu>
-                                <button class="font-bold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">Студијски програми <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
+                            <Menu :triggers="[isMobile ? 'click' : 'hover']" placement="bottom-start" :shift="6" :offset="4">
+                                <button class="font-semibold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">Студијски програми <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
                                 <template #popper>
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
                                         <li>
-                                            <Link :class="[isActive('/informatika') ? 'text-red-800' : 'text-gray-900']" href="/informatika" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика</Link>
+                                            <Link :class="[isActive('/informatika') ? 'text-red-800' : 'text-gray-900']" href="/informatika" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика</Link>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/ekonomija') ? 'text-red-800' : 'text-gray-900']" href="/ekonomija" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија</Link>
+                                            <Link :class="[isActive('/ekonomija') ? 'text-red-800' : 'text-gray-900']" href="/ekonomija" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија</Link>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/informatika-master') ? 'text-red-800' : 'text-gray-900']" href="/informatika-master" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика (Мастер студије)</Link>
+                                            <Link :class="[isActive('/informatika-master') ? 'text-red-800' : 'text-gray-900']" href="/informatika-master" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика (Мастер студије)</Link>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/ekonomija-master') ? 'text-red-800' : 'text-gray-900']" href="/ekonomija-master" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија (Мастер студије)</Link>
+                                            <Link :class="[isActive('/ekonomija-master') ? 'text-red-800' : 'text-gray-900']" href="/ekonomija-master" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија (Мастер студије)</Link>
                                         </li>
                                     </ul>
                                 </template>
                             </Menu>
                         </li>
                         <li>
-                            <Menu>
-                                <button class="font-bold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">Школа <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
+                            <Menu :triggers="[isMobile ? 'click' : 'hover']" placement="bottom-start" :shift="6" :offset="4">
+                                <button class="font-semibold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">Школа <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
                                 <template #popper>
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
                                         <li>
-                                            <Link :class="[isActive('/raspored/ispita') ? 'text-red-800' : 'text-gray-900']" href="/raspored/ispita" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Распоред испита</Link>
+                                            <Link :class="[isActive('/raspored/ispita') ? 'text-red-800' : 'text-gray-900']" href="/raspored/ispita" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Распоред испита</Link>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/raspored/nastave') ? 'text-red-800' : 'text-gray-900']" href="/raspored/nastave" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Распоред наставе</Link>
+                                            <Link :class="[isActive('/raspored/nastave') ? 'text-red-800' : 'text-gray-900']" href="/raspored/nastave" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Распоред наставе</Link>
                                         </li>
                                     </ul>
                                 </template>
                             </Menu>
                         </li>
                         <li>
-                            <Menu>
-                                <button class="font-bold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0 ">Упис <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
+                            <Menu :triggers="[isMobile ? 'click' : 'hover']" placement="bottom-start" :shift="6" :offset="4">
+                                <button class="font-semibold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0 ">Упис <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
                                 <template #popper>
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
                                         <li>
-                                            <Link :class="[isActive('/cenovnik') ? 'text-red-800' : 'text-gray-900']"   href="/cenovnik" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ценовник</Link>
+                                            <Link :class="[isActive('/cenovnik') ? 'text-red-800' : 'text-gray-900']"   href="/cenovnik" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ценовник</Link>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/prijava') ? 'text-red-800' : 'text-gray-900']" href="/prijava" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава</Link>
+                                            <Link :class="[isActive('/prijava') ? 'text-red-800' : 'text-gray-900']" href="/prijava" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава</Link>
                                         </li>
                                     </ul>
                                 </template>
                             </Menu>
                         </li>
                         <li>
-                            <Link :class="[isActive('/kontakt') ? 'text-red-800' : 'text-gray-900']" href="/kontakt" class="font-bold block !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0 text-gray-900  hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0 lg:p-0">Контакт</Link>
+                            <Link :class="[isActive('/kontakt') ? 'text-red-800' : 'text-gray-900']" href="/kontakt" class="font-semibold block !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0 text-gray-900  hover:bg-gray-50 hover:text-amber-500 lg:hover:bg-transparent lg:border-0 lg:p-0">Контакт</Link>
                         </li>
                         <li>
-                            <Menu>
-                                <button class="font-bold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">Студентски инфо сервис <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
+                            <Menu :triggers="[isMobile ? 'click' : 'hover']" placement="bottom-start" :shift="6" :offset="4">
+                                <button class="font-semibold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">Студентски инфо сервис <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
                                 <template #popper>
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
                                         <li>
-                                            <Link :class="[isActive('/prijava-ispita') ? 'text-red-800' : 'text-gray-900']"  href="/prijava-ispita" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава испита</Link>
+                                            <Link :class="[isActive('/prijava-ispita') ? 'text-red-800' : 'text-gray-900']"  href="/prijava-ispita" class="font-semibold  block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава испита</Link>
                                         </li>
                                         <li class="relative group">
                                             <Menu placement="right-start">
-                                                <Link :class="[isActive('/upustvo-za-studente') ? 'text-red-800' : 'text-gray-900']" data-dropdown-placement="right-end" href="/upustvo-za-studente" data-dropdown-trigger="hover"  data-dropdown-toggle="doubleDropdown3"  class="font-bold flex px-4 py-2 hover:bg-gray-100 items-center">Обрасци <PhArrowRight :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></Link>
+                                                <Link :class="[isActive('/upustvo-za-studente') ? 'text-red-800' : 'text-gray-900']" data-dropdown-placement="right-end" href="/upustvo-za-studente" data-dropdown-trigger="hover"  data-dropdown-toggle="doubleDropdown3"  class="font-semibold flex px-4 py-2 hover:bg-gray-100 items-center">Обрасци <PhArrowRight :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></Link>
                                                 <template #popper>
                                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
                                                         <li>
-                                                            <a href="/assets/files/Obrazac-za-prijavu-zavrsnog-rada-I-stepena.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава завршног рада</a>
+                                                            <a href="/assets/files/Obrazac-za-prijavu-zavrsnog-rada-I-stepena.doc" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава завршног рада</a>
                                                         </li>
                                                         <li>
-                                                            <a href="/assets/files/Obrazac-za-prijavu-zavrsnog-rada-na-master-studijama.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава мастер рада</a>
+                                                            <a href="/assets/files/Obrazac-za-prijavu-zavrsnog-rada-na-master-studijama.doc" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава мастер рада</a>
                                                         </li>
                                                         <li>
-                                                            <a href="/assets/files/Упутство-за-израду-завршног-рада.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство за израду дипломског рада</a>
+                                                            <a href="/assets/files/Упутство-за-израду-завршног-рада.doc" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство за израду дипломског рада</a>
                                                         </li>
                                                         <li>
-                                                            <a href="/assets/files/UPUTSTVO-ZA-IZRADU-ZAVRSNOG-RADA-NA-MASTER-STUDIJAMA.doc" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство за израду мастер рада</a>
+                                                            <a href="/assets/files/UPUTSTVO-ZA-IZRADU-ZAVRSNOG-RADA-NA-MASTER-STUDIJAMA.doc" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство за израду мастер рада</a>
                                                         </li>
                                                     </ul>
                                                 </template>
                                             </Menu>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/raspored-aktivnosti') ? 'text-red-800' : 'text-gray-900']" href="/raspored-aktivnosti" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Активности и календари</Link>
+                                            <Link :class="[isActive('/raspored-aktivnosti') ? 'text-red-800' : 'text-gray-900']" href="/raspored-aktivnosti" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Активности и календари</Link>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/biblioteka') ? 'text-red-800' : 'text-gray-900']" href="/biblioteka" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Библиотека</Link>
+                                            <Link :class="[isActive('/biblioteka') ? 'text-red-800' : 'text-gray-900']" href="/biblioteka" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Библиотека</Link>
                                         </li>
                                         <li>
-                                            <a href="https://moodle.vsdositej.edu.rs/login/index.php" target="_blank" class="font-bold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Moodle платформа</a>
+                                            <a href="https://moodle.vsdositej.edu.rs/login/index.php" target="_blank" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Moodle платформа</a>
                                         </li>
                                     </ul>
                                 </template>
@@ -174,20 +177,26 @@ import { usePage } from '@inertiajs/vue3';
 import { Menu } from 'floating-vue';
 const page = usePage();
 const currentUrl = computed(() => page.url);
-
+const isMobile = ref(false);
 
 const isActive = (href) => currentUrl.value === href;
 const isSticky = ref(false);
 const handleScroll = () => {
     isSticky.value = window.scrollY > 200;
 };
-
+function checkIsMobile() {
+    isMobile.value = window.innerWidth < 1024; // lg breakpoint u Tailwindu
+}
 onMounted(()=>{
     window.addEventListener('scroll', handleScroll);
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
 })
 
 onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', checkIsMobile);
+
 });
 
 </script>

@@ -82,7 +82,7 @@
                     <ScheduleComponent v-for="raspored in rasporediMoji" :key="raspored.id" :raspored="raspored"/>
                 </template>
                 <template v-else>
-                    <h3 class="text-gray-500">Trenutno nema rasporeda {{ typeOfSchedule }}</h3>
+                    <h3 class="text-gray-500 my-4">Тренутно нема распореда {{ typeOfSchedule }}</h3>
                 </template>
             </div>
 

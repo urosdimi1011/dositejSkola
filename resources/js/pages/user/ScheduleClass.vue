@@ -43,7 +43,7 @@
                                     </div>
                                 </template>
                                 <template v-else>
-                                    <p class="text-gray-500 m-3">Тренутно нема активности</p>
+                                    <p class="text-gray-500 m-3 !text-sm sm:!text-lg">Тренутно нема активности</p>
                                 </template>
                         </template>
 
@@ -65,11 +65,11 @@ const getSchedule = async ()=>{
     loader.value = false;
 }
 const rasporediIstipa = [
-    { ispitniRok: 'Januarsko-februarski ispitni rok', terminPrijaveIspita: 'Od 9. do 22. decembra 2024.',terminIspitnogRoka: 'Od 27. januara do 14. februara 2025.' },
-    { ispitniRok: 'Januarsko-februarski ispitni rok', terminPrijaveIspita: 'Od 9. do 22. decembra 2024.',terminIspitnogRoka: 'Od 27. januara do 14. februara 2025.' },
-    { ispitniRok: 'Januarsko-februarski ispitni rok', terminPrijaveIspita: 'Od 9. do 22. decembra 2024.',terminIspitnogRoka: 'Od 27. januara do 14. februara 2025.' },
-    { ispitniRok: 'Januarsko-februarski ispitni rok', terminPrijaveIspita: 'Od 9. do 22. decembra 2024.',terminIspitnogRoka: 'Od 27. januara do 14. februara 2025.' },
-    { ispitniRok: 'Januarsko-februarski ispitni rok', terminPrijaveIspita: 'Od 9. do 22. decembra 2024.',terminIspitnogRoka: 'Od 27. januara do 14. februara 2025.' },
+    { ispitniRok: 'Јануарско-фебруарски испитни рок', terminPrijaveIspita: '-',terminIspitnogRoka: '27.01 до 14.02.2025.' },
+    { ispitniRok: 'Априлски испитни рок', terminPrijaveIspita: '-',terminIspitnogRoka: ' 31.03. до 12.04.2025.' },
+    { ispitniRok: 'Јунско - Јулски испитни рок', terminPrijaveIspita: '-',terminIspitnogRoka: '02.06. до 04.07. 2025.' },
+    { ispitniRok: 'Септембарски испитни рок', terminPrijaveIspita: '-',terminIspitnogRoka: '01.09. до 19.10. 2025.' },
+    { ispitniRok: 'Октобарски испитни рок', terminPrijaveIspita: '-',terminIspitnogRoka: '22.09. до 11.10. 2025.' },
 ]
 const sections = reactive([
     {

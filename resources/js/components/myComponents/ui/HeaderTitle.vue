@@ -2,12 +2,12 @@
     <div class="bg-[url('/assets/img/slikaSlajder2.jpg')]
          bg-center bg-fixed bg-cover relative header-bigger-block text-gray-50 text-center mb-10 bg-red-800 py-2 shadow-xl">
         <div class="absolute inset-0 bg-red-800 opacity-70 pointer-events-none"></div>
-        <h1 data-aos="fade-down" class="text-2xl sm:text-3xl font-medium text-shadow-lg"><slot></slot></h1>
+        <h1 data-aos="fade-down" class="!text-xl sm:!text-3xl font-medium text-shadow-lg"><slot></slot></h1>
         <span class="relative mx-auto h-1 block rounded-sm w-[11%] bg-red-800 overflow-hidden">
           <span class="absolute inset-y-0 left-[-30%] w-[20%] bg-red-500/30 animate-shimmer rounded-sm"></span>
         </span>
         <!-- Prikaz breadcrumb-a ako postoji niz stavki -->
-        <nav data-aos="fade-down" v-if="props.breadcrumbs && props.breadcrumbs.length" class="mt-4">
+        <nav data-aos="fade-down" v-if="props.breadcrumbs && props.breadcrumbs.length" class="mt-4 !text-sm sm:!text-lg">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li v-for="(breadcrumb, index) in props.breadcrumbs" :key="index" class="flex items-center mr-0">
                     <template v-if="breadcrumb.url && index !== props.breadcrumbs.length - 1">

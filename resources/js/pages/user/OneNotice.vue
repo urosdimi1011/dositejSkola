@@ -4,9 +4,9 @@
                 <strong class="font-bold">{{notice.title}}</strong>
             </header-title>
         <div class="max-w-screen-xl mx-auto">
-            <div class="grid grid-cols-[70%_30%]">
+            <div class="grid !gap-5 sm:!gap-0 !grid-cols-1 sm:!grid-cols-[70%_30%]">
                 <div class="notice">
-                    <p class="my-10" v-html="notice.content"></p>
+                    <p class="!text-sm sm:!text-md my-10" v-html="notice.content"></p>
                     <div class="info grid grid-cols-2">
                         <p><span class="uppercase text-shadow-xs color-for-text">kategorija</span><br/>{{notice.category}}</p>
                         <p><span class="uppercase text-shadow-xs color-for-text">datum objave</span><br/>{{formatDate(notice.created_at)}}</p>

@@ -1,6 +1,6 @@
 <template>
     <div class="schedule my-5">
-        <h4><a class="transition hover:text-gray-400 flex items-center" :href="'/storage/'+raspored.file_path">
+        <h4><a target="_blank" class="transition hover:text-gray-400 flex items-center" :href="'/storage/'+raspored.file_path">
             <template v-if="typeOfFile==='doc' || typeOfFile==='docx'">
                 <PhMicrosoftWordLogo :size="22" />
             </template>

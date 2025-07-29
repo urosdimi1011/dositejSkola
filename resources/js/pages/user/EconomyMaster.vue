@@ -5,13 +5,13 @@
         </header-title>
         <div class="ekonomija-block mx-auto max-w-screen-xl">
             <div class="header-block my-10">
-                <h2 class="text-2xl text-gray-950 font-medium">
+                <h2 class="!text-xl sm:!text-2xl text-gray-950 font-medium">
                     Мастер академске студије
                     <span class="underline w-1/12 bg-red-800 h-1 block rounded-sm"></span>
                 </h2>
             </div>
 
-            <div class="content my-10">
+            <div class="content my-10 !px-2 sm:!px-0">
                 <div class="grid grid-cols-1 sm:grid-cols-2 items-center gap-3">
                     <div class="content">
                         <p class="my-5">Студијски програм <strong class="text-red-800">мастер академских студија „Општа економија”</strong> омогућава нову надградњу стечених знања на основним академским студијама, којом се остварује иновативност и креативност, аналитичност и истраживачки приступ савраеменим практичним достигнућима у економији, финансијама, предузетништву и менаџменту.</p>
@@ -25,7 +25,7 @@
                 </div>
                 <div  data-aos="fade-left" class="grid grid-cols-1 sm:grid-cols-2 gap-10 my-10">
                     <div class="content">
-                        <h3 class="text-xl my-5 text-gray-500 uppercase">Предмети</h3>
+                        <h3 class="!text-lg sm:!text-xl my-5 text-gray-500 uppercase">Предмети</h3>
                         <Accordian :items="selection" :active-item-key="1">
                             <template #default="{item}">
                                 <Table :datas="item.payload.datas" :headers="tableHeder">

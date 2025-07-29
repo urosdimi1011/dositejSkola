@@ -4,17 +4,15 @@
             <header-title>
                 <strong class="font-bold">О нама</strong>
             </header-title>
-            <div class="max-w-screen-xl mx-auto mb-10 bg-no-repeat bg-cover bg-[url(/assets/files/o-nama-handshake.jpg)] h-80">
-
-            </div>
-            <div class="content-middle max-w-screen-xl mx-auto">
+            <div class="content-middle max-w-screen-xl mx-auto px-2 sm:px-0">
+                <div class="max-w-screen-xl mx-auto mb-10 bg-no-repeat bg-cover bg-[url(/assets/files/o-nama-handshake.jpg)] !h-50 sm:!h-80"></div>
                 <p><strong class="text-red-800">Висока школа академских студија “Доситеј“</strong> јесте новооснована високошколска установа са седиштем у Београду. Налазимо се у самом центру Београда, на адреси Булевар војводе Путника бр. 7.</p>
 
                 <p>Висока школа академских студија је највиши акредитациони ранг који је идентичан факултету, с тим што формално-правно назив “факултет” образовно-научне институције могу носити само када су у саставу универзитета. Висока школа „Доситеј“ је самостална високо-школска установа чији је оснивач Средња школа „Доситеј“ која на образовној мапи Београда постоји већ дуже од 7 година. Висока школа “Доситеј” обухвата основне академске и мастер студије на образовно-научном пољу друштвених наука из области опште економије и из области информатике.</p>
 
                 <p>Висока школа “Доситеј” поседује дозволу за рад, а наставни план и програм основних и мастер академских студија акредитован је од стране Комисије за акредитацију и проверу квалитета под бројем 612-00- 01288/2015-06.</p>
 
-                <div class="grid grid-cols-[60%_30%] gap-2 justify-between my-10">
+                <div class="grid grid-cols-1 sm:!grid-cols-[60%_30%] !gap-4 sm:!gap-2 justify-between my-10 ">
                     <div class="content">
                         <div data-aos="fade-down" class="content-block my-10">
                             <div class="header-block my-10">
