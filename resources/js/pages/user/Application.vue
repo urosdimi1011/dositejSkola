@@ -85,6 +85,15 @@
                         <label for="email" class="peer-focus:font-medium absolute text-sm text-gray-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Електронска пошта (обавезно)</label>
                         <ErrorMessage class="w-full flex items-start mt-2 text-xs text-slate-400" name="email" />
                     </div>
+                    <div>
+                        <RecaptchaV2
+                            @widget-id="handleWidgetId"
+                            @error-callback="handleErrorCallback"
+                            @expired-callback="handleExpiredCallback"
+                            @load-callback="handleLoadCallback"
+                        />
+                    </div>
+
                     <button type="submit" class="cursor-pointer mt-3 inline-block text-red-700 border border-orange-400 px-3 py-1 text-sm rounded hover:bg-orange-50 transition">Пријави се</button>
                 </Form>
                 <template v-if="messagesError != null">
@@ -100,14 +109,16 @@
 </template>
 <script setup>
 import MyLayout from "@/layouts/myLayout.vue";
-import {onMounted,ref} from "vue";
+import { onMounted, ref} from "vue";
 import {initFlowbite} from "flowbite";
 import * as yup from "yup";
 import {Form,Field,ErrorMessage} from 'vee-validate';
 import HeaderTitle from "@/components/myComponents/ui/HeaderTitle.vue";
 import axios from "axios";
-import { useHead } from '@vueuse/head';
+import { useHead } from '@vueuse/head'
+const recaptchaResponse = ref(null);
 
+import { RecaptchaV2 } from "vue3-recaptcha-v2";
 useHead({
     title: 'Пријава за студије | Висока школа „Доситеј“',
     meta: [
@@ -145,13 +156,30 @@ useHead({
         }
     ]
 });
+
+
+
+const handleWidgetId = (widgetId) => {
+    console.log("Widget ID: ", widgetId);
+};
+const handleErrorCallback = () => {
+    console.log("Error callback");
+};
+const handleExpiredCallback = () => {
+    console.log("Expired callback");
+    recaptchaResponse.value = null; // Resetujemo odgovor kada istekne
+
+};
+const handleLoadCallback = (response) => {
+    console.log("Load callback", response);
+
+    recaptchaResponse.value = response;
+};
 onMounted(()=>{
+
     initFlowbite();
 })
-
 const messagesError = ref(null);
-
-
 const schema = yup.object({
     ime: yup
         .string()
@@ -212,11 +240,16 @@ const schema = yup.object({
 });
 
 const submit = async (values)=>{
+    if (!recaptchaResponse.value) {
+        alert('Molimo potvrdite da niste robot!');
+        return;
+    }
     try{
         const response = await axios.post('/prijaviStudenta',values);
     }
     catch (ex){
         messagesError.value  = ex.response.data.errors;
+        recaptchaResponse.value = null;
     }
 }
 </script>

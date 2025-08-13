@@ -14,6 +14,8 @@ import { initializeTheme } from './composables/useAppearance';
 import { createHead } from '@vueuse/head'
 import FloatingVue from 'floating-vue'
 import 'floating-vue/dist/style.css';
+import { install } from "vue3-recaptcha-v2";
+
 // import ToastPlugin from 'vue-toast-notification';
 // import 'vue-toast-notification/dist/theme-sugar.css'
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
@@ -28,6 +30,10 @@ createInertiaApp({
             .use(ZiggyVue)
             .use(FloatingVue)
             .use(head)
+            .use(install, {
+                sitekey: "6LcIxqQrAAAAAMuVMCkrlL7EkBylPn6d2mZgW0g8",
+                cnDomains: false, // Optional, If you use in China, set this value true
+            })
             .mount(el);
         AOS.init({ once: true, duration: 500 })
         initFlowbite();

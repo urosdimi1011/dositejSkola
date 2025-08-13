@@ -5,7 +5,7 @@
         </header-title>
         <div class="importatnt-documents-block  mx-auto max-w-screen-xl" >
             <div class="document my-5" v-for="document in documents" :key="document.id">
-                <h4><a class="hover:text-red-800 transition flex items-center gap-2" :href="document.href"><PhFile :size="22" /> {{document.name}} </a></h4>
+                <h4 class="!text-sm sm:text-md"><a class="hover:text-red-800 transition flex items-center gap-2 justify-start" :href="document.href"><PhFile class="w-8 sm:w-10 !text-left" :size="22" /> {{document.name}} </a></h4>
             </div>
         </div>
     </my-layout>

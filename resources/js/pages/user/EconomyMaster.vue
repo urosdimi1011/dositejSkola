@@ -1,11 +1,11 @@
 <template>
     <my-layout>
         <header-title>
-            <p class="strong">Економија</p>
+            <p class="strong">Економија - мастер студије</p>
         </header-title>
         <div class="ekonomija-block mx-auto max-w-screen-xl">
             <div class="header-block my-10">
-                <h2 class="!text-xl sm:!text-2xl text-gray-950 font-medium">
+                <h2 class="!text-lg sm:!text-2xl text-gray-950 font-medium">
                     Мастер академске студије
                     <span class="underline w-1/12 bg-red-800 h-1 block rounded-sm"></span>
                 </h2>

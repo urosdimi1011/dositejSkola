@@ -4,13 +4,13 @@
             <div class="py-1 content mx-auto max-w-screen-xl">
                 <ul class="flex flex-wrap !justify-center sm:!justify-start !gap-2 sm:!gap-4">
                     <li>
-                        <a class="text-sm text-gray-50 flex gap-2 items-center" href="mailto:office@vsdositej.edu.rs"><PhEnvelope :size="20" />office@vsdositej.edu.rs</a>
+                        <a class="text-xs sm:text-sm text-gray-50 flex gap-2 items-center" href="mailto:office@vsdositej.edu.rs"><PhEnvelope :size="20" />office@vsdositej.edu.rs</a>
                     </li>
                     <li>
-                        <a class="text-sm text-gray-50 flex gap-2 items-center" href="tel:+381 113235500"><PhPhoneCall :size="20" />+381 113235500</a>
+                        <a class="text-xs sm:text-sm text-gray-50 flex gap-2 items-center" href="tel:+381 113235500"><PhPhoneCall :size="20" />+381 113235500</a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/kuca.znanja/" target="_blank" class="text-sm text-gray-50 flex gap-2 items-center"><PhInstagramLogo :size="20" weight="light" /> kuca.znanja</a>
+                        <a class="text-gray-50 flex gap-2 items-center text-xs sm:text-sm" href="https://www.instagram.com/kuca.znanja/" target="_blank" ><PhInstagramLogo :size="20" weight="light" /> kuca.znanja</a>
                     </li>
                 </ul>
             </div>
@@ -59,7 +59,7 @@
                                             <Link :class="[isActive('/važni-dokumenti') ? 'text-red-800' : 'text-gray-900']" href="/važni-dokumenti" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Важни документи</Link>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/akreditacija') ? 'text-red-800' : 'text-gray-900']" href="/akreditacija" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Аикредитације</Link>
+                                            <Link :class="[isActive('/akreditacija') ? 'text-red-800' : 'text-gray-900']" href="/akreditacija" class="font-semibold block px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Аикредитације</Link>
                                         </li>
                                     </ul>
                                 </template>
@@ -68,20 +68,20 @@
                         </li>
                         <li>
                             <Menu :triggers="[isMobile ? 'click' : 'hover']" placement="bottom-start" :shift="6" :offset="4">
-                                <button class="font-semibold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">Студијски програми <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></button>
+                                <Link :class="[isActive('/studijski-programi') ? 'text-red-800' : 'text-gray-900']" href="/studijski-programi" class="font-semibold flex items-center !py-2 !pr-4 !pl-3 md:!py-0 md:!pr-0 md:!pl-0">Студијски програми <PhArrowDown :size="12" class="transition-transform duration-400 group-hover:rotate-180 ml-1"/></Link>
                                 <template #popper>
                                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
                                         <li>
-                                            <Link :class="[isActive('/informatika') ? 'text-red-800' : 'text-gray-900']" href="/informatika" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика</Link>
+                                            <Link :class="[isActive('/studijski-programi/informatika') ? 'text-red-800' : 'text-gray-900']" href="/studijski-programi/informatika" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика</Link>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/ekonomija') ? 'text-red-800' : 'text-gray-900']" href="/ekonomija" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија</Link>
+                                            <Link :class="[isActive('/studijski-programi/ekonomija') ? 'text-red-800' : 'text-gray-900']" href="/studijski-programi/ekonomija" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија</Link>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/informatika-master') ? 'text-red-800' : 'text-gray-900']" href="/informatika-master" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика (Мастер студије)</Link>
+                                            <Link :class="[isActive('/studijski-programi/informatika-master') ? 'text-red-800' : 'text-gray-900']" href="/studijski-programi/informatika-master" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Информатика (Мастер студије)</Link>
                                         </li>
                                         <li>
-                                            <Link :class="[isActive('/ekonomija-master') ? 'text-red-800' : 'text-gray-900']" href="/ekonomija-master" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија (Мастер студије)</Link>
+                                            <Link :class="[isActive('/studijski-programi/ekonomija-master') ? 'text-red-800' : 'text-gray-900']" href="/studijski-programi/ekonomija-master" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Економија (Мастер студије)</Link>
                                         </li>
                                     </ul>
                                 </template>
@@ -140,7 +140,7 @@
                                                             <a href="/assets/files/Obrazac-za-prijavu-zavrsnog-rada-na-master-studijama.doc" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Пријава мастер рада</a>
                                                         </li>
                                                         <li>
-                                                            <a href="/assets/files/Упутство-за-израду-завршног-рада.doc" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство за израду дипломског рада</a>
+                                                            <a href="/assets/files/Uputstvo-za-izradu-zavrsnog-rada.doc" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство за израду дипломског рада</a>
                                                         </li>
                                                         <li>
                                                             <a href="/assets/files/UPUTSTVO-ZA-IZRADU-ZAVRSNOG-RADA-NA-MASTER-STUDIJAMA.doc" class="font-semibold block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Упуство за израду мастер рада</a>

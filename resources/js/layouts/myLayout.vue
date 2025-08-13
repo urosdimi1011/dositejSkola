@@ -11,7 +11,6 @@
 import {reactive,onMounted} from "vue";
 import HeaderUser from "@/layouts/app/HeaderUser.vue";
 import FooterUser from "@/layouts/app/FooterUser.vue";
-
 const items = reactive([
     {
         'href':"/",
@@ -28,6 +27,7 @@ const items = reactive([
 ])
 
 onMounted(() => {
+
     // makar i timeout, da bismo sačekali da
     // ga DevExtreme ubaci u DOM
     setTimeout(() => {

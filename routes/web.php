@@ -84,29 +84,37 @@ Route::get('/upustvo-za-studente', function () {
 })->name('UpustvoZaStudente');
 
 
-Route::get('/ekonomija', function () {
-    $title = "Visoka škola akademskih studija Dositej - Ekonomija";
-    Meta::setTitle($title);
-    return Inertia::render('user/Economy');
-})->name('Ekonomija');
+Route::prefix('studijski-programi')->name('studijski-programi.')->group(function () {
+    Route::get('/ekonomija', function () {
+        $title = "Visoka škola akademskih studija Dositej - Ekonomija";
+        Meta::setTitle($title);
+        return Inertia::render('user/Economy');
+    })->name('ekonomija');
 
-Route::get('/ekonomija-master', function () {
-    $title = "Visoka škola akademskih studija Dositej - Ekonomija Master studije";
-    Meta::setTitle($title);
-    return Inertia::render('user/EconomyMaster');
-})->name('EkonomijaMaster');
+    Route::get('/ekonomija-master', function () {
+        $title = "Visoka škola akademskih studija Dositej - Ekonomija Master studije";
+        Meta::setTitle($title);
+        return Inertia::render('user/EconomyMaster');
+    })->name('ekonomija-master');
 
-Route::get('/informatika', function () {
-    $title = "Visoka škola akademskih studija Dositej - Informacioni smer";
-    Meta::setTitle($title);
-    return Inertia::render('user/Information');
-})->name('Informatika');
+    Route::get('/informatika', function () {
+        $title = "Visoka škola akademskih studija Dositej - Informacioni smer";
+        Meta::setTitle($title);
+        return Inertia::render('user/Information');
+    })->name('informatika');
 
-Route::get('/informatika-master', function () {
-    $title = "Visoka škola akademskih studija Dositej - Informacioni smer - Master";
+    Route::get('/informatika-master', function () {
+        $title = "Visoka škola akademskih studija Dositej - Informacioni smer - Master";
+        Meta::setTitle($title);
+        return Inertia::render('user/InformationMaster');
+    })->name('informatika-master');
+});
+
+Route::get('/studijski-programi', function () {
+    $title = "Visoka škola akademskih studija Dositej - Studijski programi";
     Meta::setTitle($title);
-    return Inertia::render('user/InformationMaster');
-})->name('InformatikaMaster');
+    return Inertia::render('user/StudiesProgram');
+})->name('StudijskiProgrami');
 
 Route::get('/osoba/{slug}', [\App\Http\Controllers\StaffMemebersController::class,'getOneWithTemplate'])->name('osobaJedna');
 
@@ -128,6 +136,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         return Inertia::render('admin/StaffMembers');
     })->name('osoblje');
 
+    Route::delete('/osoblje/{id}', [\App\Http\Controllers\StaffMemebersController::class, 'delete'])->name('obrisiOsobu');
+
+
     Route::get('/osobljeSvo', [\App\Http\Controllers\StaffMemebersController::class, 'getAll'])->name('osobljeSvo');
     Route::get('/osoblje/{id}', [\App\Http\Controllers\StaffMemebersController::class, 'getOne'])->name('osoba');
     Route::post('/osoblje', [\App\Http\Controllers\StaffMemebersController::class, 'store'])->name('osobaDodavanje');
@@ -135,6 +146,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         '/osoblje/{member}',
         [\App\Http\Controllers\StaffMemebersController::class, 'update']
     )->name('osobljeIzmena');
+
+
+
 
 
     Route::get('/pozicije',[\App\Http\Controllers\PositionController::class,'getAll'])->name('pozicije');

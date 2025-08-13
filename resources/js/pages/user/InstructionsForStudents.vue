@@ -14,7 +14,7 @@
             <div class="upustva my-10">
                 <h3 class="text-xl text-gray-500">Упуства</h3>
                 <div class="document ">
-                    <h4 class="my-3"><a class="hover:text-red-800 transition flex items-center gap-2" href="/assets/files/Упутство-за-израду-завршног-рада.doc"><PhMicrosoftWordLogo :size="22" /> Упуство за израду завршног рада </a></h4>
+                    <h4 class="my-3"><a class="hover:text-red-800 transition flex items-center gap-2" href="/assets/files/Uputstvo-za-izradu-zavrsnog-rada.doc"><PhMicrosoftWordLogo :size="22" /> Упуство за израду завршног рада </a></h4>
                     <h4 class="my-3"><a class="hover:text-red-800 transition flex items-center gap-2" href="/assets/files/UPUTSTVO-ZA-PRIJAVU-MASTER-RADA.doc"><PhMicrosoftWordLogo :size="22" />Упуство за <span class="font-bold">пријаву</span> завршног мастер рада </a></h4>
                     <h4 class="my-3"><a class="hover:text-red-800 transition flex items-center gap-2" href="/assets/files/UPUTSTVO-ZA-IZRADU-ZAVRSNOG-RADA-NA-MASTER-STUDIJAMA.doc"><PhMicrosoftWordLogo :size="22" />Упуство за <span class="font-bold">израду</span> завршног мастер рада </a></h4>
                 </div>

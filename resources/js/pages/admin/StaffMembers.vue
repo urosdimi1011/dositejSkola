@@ -32,6 +32,8 @@ import Button from "@/components/ui/button/Button.vue";
 import ScheduleForm from '@/components/myComponents/forms/ScheduleForm.vue';
 import axios from "axios";
 import {boolean} from "yup";
+import DeleteForm from "@/components/myComponents/forms/delete/DeleteForm.vue";
+import {router} from "@inertiajs/vue3";
 import StaffMembersForm from "@/components/myComponents/forms/StaffMembersForm.vue";
 // const store = useStore();
 const dialog = reactive({
@@ -89,18 +91,29 @@ const headersOfTable = ref<HeadersIntefrace[]>([
     },
     {
         "name": "delete",
-        'label': "Obrisi osoblje",
-        'actions' : (row)=>{
+        "label": "Obrisi osoblje",
+        "actions": (row) => {
             dialog.isDialogOpen = true;
-            dialog.dialogTitle = 'Da li ste sigurni da zelite da obrisete osoblje?';
-            dialog.dialogProps = {'id':row.id};
-            dialog.dialogComponent= RoomDeleteConfirm;
-
-            //Ovde sada treba da se otvori modal za izmenu sobe i da prikaze sve podateke vec u formi za izmenu
-            //samo da vidim kako to sad mogu da odradim
+            dialog.dialogTitle = 'Da li ste sigurni da želite da obrisete osoblje?';
+            dialog.dialogProps = {
+                id: row.id,
+                onConfirm: () => {
+                    axios.delete(`/admin/osoblje/${row.id}`)
+                    .then(response => {
+                        dialog.isDialogOpen = false;
+                        // Dodatne akcije nakon uspešnog brisanja
+                        window.location.reload(); // ili ažuriranje stanja bez refresh-a
+                    })
+                    .catch(error => {
+                        console.error('Greška pri brisanju:', error);
+                        alert('Došlo je do greške prilikom brisanja');
+                    });
+                }
+            };
+            dialog.dialogComponent = DeleteForm;
         },
-        "class":"bg-pink-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    },
+        "class": "bg-pink-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    }
 ]);
 
 const dataForBody = ref<ScheduleData[]>([]);

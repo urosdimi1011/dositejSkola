@@ -50,6 +50,45 @@ class StaffMemebersController extends Controller
         return Inertia::render('user/StaffTemplate',['osoba'=>$member]);
     }
 
+    public function delete($id)
+    {
+        try {
+            // 1. Validacija da li ID postoji
+            $staffMember = StaffMembers::find($id);
+
+            if (!$staffMember) {
+                return response()->json([
+                    'message' => 'Osoba sa ID-om ' . $id . ' nije pronađena.'
+                ], 404);
+            }
+
+            // 2. Dodatna provera zavisnosti (ako postoje)
+            // if ($staffMember->hasRelatedRecords()) {
+            //     return response()->json([
+            //         'message' => 'Ne možete obrisati osobu jer postoje povezani zapisi.'
+            //     ], 422);
+            // }
+
+            // 3. Soft delete ako je potrebno (umesto hard delete)
+            $staffMember->delete();
+
+            // 4. Eventualno okidanje eventa
+            // event(new StaffMemberDeleted($staffMember));
+
+            return response()->json([
+                'message' => 'Uspešno ste obrisali osobu',
+                'data' => $staffMember // Opciono: vratiti obrisane podatke
+            ]);
+
+        } catch (\Exception $ex) {
+
+            return response()->json([
+                'message' => 'Došlo je do greške prilikom brisanja osobe',
+                'error' => config('app.debug') ? $ex->getMessage() : 'Pokušajte ponovo kasnije'
+            ], 500);
+        }
+    }
+
     public function store(StaffMembersRequest $request){
 
         try{

@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div  class="content-block grid grid-cols-1 sm:grid-cols-2 grid-rows-2 gap-10">
                 <div class="info flex items-center gap-3 justify-start sm:justify-center">
                     <div class="img-block">
-                        <PhPhoneCall :size="42" weight="light" />
+                        <PhPhoneCall :size="37" weight="light" />
                     </div>
                     <div class="content !text-lg sm:!text-xl">
                         <h4 class="font-bold text-red-800 my-2">Студентска служба - Упис</h4>
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <div class="info flex items-center gap-3 justify-start sm:justify-center">
                     <div class="img-block !text-lg sm:!text-xl">
-                        <PhEnvelope :size="42" weight="light"/>
+                        <PhEnvelope :size="37" weight="light"/>
                     </div>
                     <div class="content !text-lg sm:!text-xl">
                         <h4 class="font-bold text-red-800 my-2">Електронска пошта</h4>
@@ -223,8 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
                 <div class="info flex items-center gap-3 justify-start sm:justify-center">
-                    <div class="img-block">
-                        <PhPhoneCall :size="42" weight="light" />
+                    <div class="img-block !text-sm sm:text-md">
+                        <PhPhoneCall :size="37" weight="light" />
                     </div>
                     <div class="content !text-lg sm:!text-xl">
                         <h4 class="font-bold text-red-800 my-2">За сваки тип питања</h4>
@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <div class="info flex items-center gap-3 justify-start sm:justify-center">
                     <div class="img-block">
-                        <PhPhoneCall :size="42" weight="light" />
+                        <PhPhoneCall :size="37" weight="light" />
                     </div>
                     <div class="content !text-lg sm:!text-xl">
                         <h4 class="font-bold text-red-800 my-2">Декант</h4>
@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <div class="content-block p-5 flex justify-between items-center">
                         <h3 class="!text-lg sm:!text-xl">Економски смер</h3>
-                        <Link href="/ekonomija"
+                        <Link href="/studijski-programi/ekonomija"
                               class="border rounded py-1 px-2 border-red-800 cursor-pointer hover:bg-orange-50 transition">
                             Сазнај више
                         </Link>
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <div class="content-block gap-4 p-5 flex justify-between items-center">
                         <h3 class="!text-md sm:!text-xl">Инфрорматика</h3>
-                        <Link href="/informatika" class="border rounded py-1 border-red-800 px-2 cursor-pointer hover:bg-orange-50 transition">Сазнај више</Link>
+                        <Link href="/studijski-programi/informatika" class="border rounded py-1 border-red-800 px-2 cursor-pointer hover:bg-orange-50 transition">Сазнај више</Link>
                     </div>
                 </div>
             </div>
@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <div class="content-block p-5 flex justify-between items-center">
                         <h3 class="!text-lg sm:!text-xl">Економски смер</h3>
-                        <Link href="/ekonomija-master" class="border rounded py-1 border-red-800 px-2 cursor-pointer hover:bg-orange-50 transition">Сазнај више</Link>
+                        <Link href="/studijski-programi/ekonomija-master" class="border rounded py-1 border-red-800 px-2 cursor-pointer hover:bg-orange-50 transition">Сазнај више</Link>
                     </div>
                 </div>
                 <div class="smer relative overflow-hidden !w-[85%] sm:!w-[60%] shadow-lg grid grid-flow-row group hover:scale-105 transition rounded-lg border-2 border-red-800/40">
@@ -328,7 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <div class="content-block gap-4 p-5 flex justify-between items-center">
                         <h3 class="!text-md sm:!text-xl">Информатика</h3>
-                        <Link href="/informatika-master" class="border rounded py-1 border-red-800 px-2 cursor-pointer hover:bg-orange-50 transition">Сазнај више</Link>
+                        <Link href="/studijski-programi/informatika-master" class="border rounded py-1 border-red-800 px-2 cursor-pointer hover:bg-orange-50 transition">Сазнај више</Link>
                     </div>
                 </div>
             </div>

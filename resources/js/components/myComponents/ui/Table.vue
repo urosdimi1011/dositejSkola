@@ -7,7 +7,16 @@
         </thead>
         <tbody>
             <tr v-for="(d, i) in datas" :key="i">
-                <td v-for="(name,key) in headers" :key="name.id" class="border px-2 py-1">{{d[name.name]}}</td>
+                <td v-for="(name,key) in headers" :key="name.id" class="border px-2 py-1">
+                    <slot
+                        :name="`cell(${name.name})`"
+                        :value="d[name.name]"
+                        :item="d"
+                        :header="name"
+                    >
+                        {{ d[name.name] }}
+                    </slot>
+                </td>
             </tr>
         </tbody>
     </table>
